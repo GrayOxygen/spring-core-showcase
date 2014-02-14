@@ -1,4 +1,5 @@
-spring-showcase
-===============
+=======
+spring-core-showcase
+====================
 
-Code showcase for Spring
+Spring core showcase
