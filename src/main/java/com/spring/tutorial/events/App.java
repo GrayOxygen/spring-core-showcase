@@ -8,6 +8,7 @@ import com.spring.tutorial.events.config.AppConfig;
 public class App {
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+                //Custom event
 		EmailService emailService = ctx.getBean(EmailService.class);
 		emailService.sendEmail("john.doe@example.org", "Notification for John Doe");
 		ctx.close();

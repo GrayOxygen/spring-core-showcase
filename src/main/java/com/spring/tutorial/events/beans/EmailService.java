@@ -1,4 +1,4 @@
-package com.spring.tutorial.events.beans;
+    package com.spring.tutorial.events.beans;
 
 import java.util.List;
 
