@@ -25,7 +25,7 @@
 		</property>
 		<property name="formatters">
 			<set>
-				<bean class="com.spring.tutorial.typeconversion.formatters.DateFormatter" c:pattern="yyyy-MM-dd" />
+				<bean class="com.spring.tutorial.typeconversion.formatters.DateFormatter" c:pattern="yyyy-MM" />
 				<bean class="com.spring.tutorial.typeconversion.formatters.NumberFormatAnnotationFormatterFactory" />
 			</set>
 		</property>
