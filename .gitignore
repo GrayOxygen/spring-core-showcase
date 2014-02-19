@@ -38,7 +38,13 @@ Desktop.ini
 .Spotlight-V100
 .Trashes
  
- 
+######################
+#Netbeans
+######################
+
+nb-configuration.xml
+nbactions-*.xml
+
 ######################
 # Eclipse
 ######################
