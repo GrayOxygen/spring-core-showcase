@@ -1,16 +1,13 @@
 package com.spring.tutorial.typeconversion;
 
 import java.util.Date;
-import java.util.Locale;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.format.Formatter;
 import org.springframework.format.support.FormattingConversionService;
 
 import com.spring.tutorial.typeconversion.beans.Foo;
-import com.spring.tutorial.typeconversion.formatters.DateFormatter;
 import java.math.BigDecimal;
 import org.springframework.expression.EvaluationContext;
 import org.springframework.expression.ExpressionParser;
@@ -39,17 +36,6 @@ public class App {
                 String fooDate = convService.convert(foo.getDate(), String.class);
                 
                 LOGGER.info("Foo date: " + fooDate);
-                
-                foo.setDecimal(BigDecimal.valueOf(1009));
-                
-                ExpressionParser ep = new SpelExpressionParser();
-                EvaluationContext ev = new StandardEvaluationContext(foo);
-                
-                ep.parseExpression("decimal").getValue(ev, Number.class);
-                
-                String fooDecimal = convService.convert(foo.getDecimal(), String.class);
-                
-                LOGGER.info("Foo decimal: " + fooDecimal);
                 
 		ctx.close();
 	}
