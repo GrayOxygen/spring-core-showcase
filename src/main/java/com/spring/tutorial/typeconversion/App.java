@@ -8,11 +8,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.format.support.FormattingConversionService;
 
 import com.spring.tutorial.typeconversion.beans.Foo;
-import java.math.BigDecimal;
-import org.springframework.expression.EvaluationContext;
-import org.springframework.expression.ExpressionParser;
-import org.springframework.expression.spel.standard.SpelExpressionParser;
-import org.springframework.expression.spel.support.StandardEvaluationContext;
 
 public class App {
 	private final static Log LOGGER = LogFactory.getLog(App.class);
@@ -30,12 +25,10 @@ public class App {
 		LOGGER.info("Foo.bar = " + foo.getBar());
 		
 		Date currentDate = new Date();
-                
-                foo.setDate(currentDate);
 		
-                String fooDate = convService.convert(foo.getDate(), String.class);
+                String formattedDate = convService.convert(currentDate, String.class);
                 
-                LOGGER.info("Foo date: " + fooDate);
+                LOGGER.info("Formatted date: " + formattedDate);
                 
 		ctx.close();
 	}
