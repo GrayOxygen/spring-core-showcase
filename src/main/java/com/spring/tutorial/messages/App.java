@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.spring.tutorial.messages;
 
 import java.util.Locale;
@@ -18,10 +17,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author macbookpro3
  */
 public class App {
-    
+
     private final static Log LOGGER = LogFactory.getLog(App.class);
-    
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         ApplicationContext ctx = new ClassPathXmlApplicationContext(
                 "com/spring/tutorial/messages/applicationContext.xml");
         MessageSource ms = ctx.getBean(MessageSource.class);
@@ -32,13 +31,18 @@ public class App {
         String successDE = ms.getMessage("msg.success", null, Locale.GERMAN);
         //Message resolution and i18n
         String label = ms.getMessage("lbl.result", null, Locale.getDefault());
-        String error = ms.getMessage("err.failure", null, Locale.getDefault());
-        LOGGER.debug("Success message (es - the default): " + success);
-        LOGGER.debug("Success message (en): " + successEN);
-        LOGGER.debug("Success message (fr): " + successFR);
-        LOGGER.debug("Success message (de) defaults to local language: " + successDE);
-        LOGGER.debug("Label text: " + label);
-        LOGGER.debug("Error message: " + error);
+        //Not necessary to pass the locale
+        String error = ms.getMessage("err.failure", null, null);
+        //Non-existent message (if the call does not specify, the default message argument,
+        //and the message code does not exist, an exception will be thrown)
+        String nonExistent = ms.getMessage("my.message", null, "Not found, defaults to this message", null);
+        LOGGER.info("Success message (es - the default): " + success);
+        LOGGER.info("Success message (en): " + successEN);
+        LOGGER.info("Success message (fr): " + successFR);
+        LOGGER.info("Success message (de) defaults to local language: " + successDE);
+        LOGGER.info("Label text: " + label);
+        LOGGER.info("Error message: " + error);
+        LOGGER.info("Non-existent message (defaults to message specified as argument): " + nonExistent);
         ((ClassPathXmlApplicationContext) ctx).close();
     }
 }
